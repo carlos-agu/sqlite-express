@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplo SQLite</title>
+</head>
+<body>
+    <h1>SQLite</h1>
+    <ul id="lista"></ul>
+    <script>
+        fetch("/listado").then(res=>{
+            return res.json();
+        }).then(datos =>{
+            datos.map(elem=>{
+                document.getElementById("lista").innerHTML += `
+                    <li>${elem.desc}</li>
+                `;
+            })
+        })
+    </script>
+</body>
+</html>
